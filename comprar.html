@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finalizar Compra - MozVendas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      padding: 20px;
+    }
+    .box {
+      background: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #008000;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #008000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Finalizar Compra</h2>
+    <form onsubmit="enviarPagamento(event)">
+      <input type="text" id="cliente" placeholder="Seu nome completo" required />
+      <input type="text" id="produto" placeholder="Nome do produto" required />
+      <input type="number" id="valor" placeholder="Valor em MZN" required />
+      <select id="metodo">
+        <option value="M-Pesa">M-Pesa</option>
+        <option value="E-Mola">E-Mola</option>
+        <option value="Conta Bancária">Conta Bancária</option>
+      </select>
+      <input type="text" id="codigo" placeholder="Código do pagamento (ex: PP123456)" required />
+      <button type="submit">Enviar Comprovativo</button>
+    </form>
+  </div>
+
+  <script>
+    function enviarPagamento(e) {
+      e.preventDefault();
+
+      const cliente = document.getElementById("cliente").value;
+      const produto = document.getElementById("produto").value;
+      const valor = document.getElementById("valor").value;
+      const metodo = document.getElementById("metodo").value;
+      const codigo = document.getElementById("codigo").value;
+
+      const numero = "258870419949"; // Seu número
+      const email = "mailto:elvesmutombene97@gmail.com";
+
+      const mensagem = `📢 *Nova Compra Manual*\n\n👤 Cliente: ${cliente}\n📦 Produto: ${produto}\n💵 Valor: ${valor} MZN\n💳 Método: ${metodo}\n🔑 Código: ${codigo}`;
+
+      // WhatsApp
+      const urlWhatsapp = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+      // Email (opcional abrir)
+      window.open(urlWhatsapp, "_blank");
+      window.location.href = email;
+    }
+  </script>
+
+</body>
+</html>
