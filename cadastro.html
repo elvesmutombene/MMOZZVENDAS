@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar Conta - MozVendas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .cadastro-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #008000;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      background: #008000;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .link {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .link a {
+      color: #008000;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="cadastro-box">
+    <h2>Criar Conta</h2>
+    <form onsubmit="cadastrar(event)">
+      <input type="text" id="nome" placeholder="Nome completo" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="senha" placeholder="Senha" required />
+      <button type="submit">Cadastrar</button>
+    </form>
+    <div class="link">
+      <p>Já tem conta? <a href="login.html">Entrar</a></p>
+    </div>
+  </div>
+
+  <script>
+    function cadastrar(e) {
+      e.preventDefault();
+      alert("Cadastro enviado! Aguarde aprovação do administrador.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
